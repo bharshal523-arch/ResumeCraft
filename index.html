@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create a professional resume with a live preview and PDF export.">
+  <title>ResumeCraft — Resume Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="ResumeCraft home"><span class="brand-mark">R</span><span>resume<span class="brand-accent">craft</span></span></a>
+    <nav class="top-nav"><a href="#builder">Builder</a><a href="#pricing">Pricing</a></nav>
+    <a class="top-cta" href="#builder">Build my resume <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR NEXT CHAPTER STARTS HERE</div>
+        <h1>Your experience.<br><span>Your next opportunity.</span></h1>
+        <p>Create a polished, job-ready resume in minutes. Edit as you go, choose a style, and export a PDF when you're ready.</p>
+        <div class="hero-actions"><a class="button button-dark" href="#builder">Create my resume <span>→</span></a><div class="social-proof"><div class="avatar-stack"><i>H</i><i>A</i><i>S</i></div><span><strong>Simple by design</strong><br>Made for students & professionals</span></div></div>
+        <div class="hero-points"><span>✓ Free to start</span><span>✓ Live preview</span><span>✓ PDF export</span></div>
+      </div>
+      <div class="hero-visual" aria-label="Example resume preview">
+        <div class="decor decor-one"></div><div class="decor decor-two"></div>
+        <div class="floating-note note-top"><span class="note-icon">✦</span><span><strong>Made to stand out</strong><small>Clean, readable layouts</small></span></div>
+        <div class="sample-resume">
+          <div class="sample-head"><div class="sample-avatar">JD</div><div><h3>Jordan Davis</h3><p>Product Designer</p><div class="sample-contact">jordan@email.com · Portfolio · LinkedIn</div></div></div>
+          <div class="sample-line"></div>
+          <div class="sample-section"><b>PROFILE</b><div class="fake-line long"></div><div class="fake-line mid"></div></div>
+          <div class="sample-section"><b>EXPERIENCE</b><div class="fake-title">Product Designer · Studio North</div><div class="fake-line long"></div><div class="fake-line mid"></div><div class="fake-title second">UX Designer · Bright Labs</div><div class="fake-line long"></div></div>
+          <div class="sample-columns"><div class="sample-section"><b>EDUCATION</b><div class="fake-title">B.Des, Design</div><div class="fake-line mid"></div></div><div class="sample-section"><b>SKILLS</b><div class="skill-pills"><i>Research</i><i>Figma</i><i>Prototyping</i></div></div></div>
+        </div>
+        <div class="floating-note note-bottom"><span class="download-icon">↓</span><span><strong>Ready when you are</strong><small>Export a printable PDF</small></span></div>
+      </div>
+    </section>
+
+    <section class="builder-section" id="builder">
+      <div class="section-heading"><div><div class="eyebrow">THE RESUME STUDIO</div><h2>Build your story.</h2><p>Fill in your details and watch your resume come together.</p></div><div class="step-badge"><span>01</span> EDIT · PREVIEW · DOWNLOAD</div></div>
+      <div class="workspace">
+        <aside class="editor-panel">
+          <div class="panel-top"><div><h3>Your details</h3><p>Changes appear in the preview instantly.</p></div><button class="text-button" id="resetBtn" type="button">Reset</button></div>
+          <form id="resumeForm">
+            <div class="form-section">
+              <div class="form-section-title"><span class="form-number">01</span><div><h4>Personal information</h4><p>How employers can reach you</p></div></div>
+              <label>Full name<input id="fullName" name="fullName" value="Alex Morgan" placeholder="e.g. Alex Morgan" maxlength="80"></label>
+              <label>Professional title<input id="jobTitle" name="jobTitle" value="Aspiring Data Analyst" placeholder="e.g. Software Developer" maxlength="100"></label>
+              <div class="field-grid"><label>Email<input id="email" type="email" value="alex.morgan@email.com" placeholder="you@email.com" maxlength="120"></label><label>Phone<input id="phone" type="tel" value="+91 98765 43210" placeholder="+91..." maxlength="30"></label></div>
+              <label>Location<input id="location" value="Mumbai, Maharashtra" placeholder="City, Country" maxlength="100"></label>
+              <div class="field-grid"><label>LinkedIn<input id="linkedin" value="linkedin.com/in/alexmorgan" placeholder="LinkedIn URL" maxlength="150"></label><label>Portfolio / GitHub<input id="website" value="github.com/alexmorgan" placeholder="Website URL" maxlength="150"></label></div>
+            </div>
+            <div class="form-section">
+              <div class="form-section-title"><span class="form-number">02</span><div><h4>Professional summary</h4><p>A short introduction</p></div></div>
+              <label>Summary<textarea id="summary" rows="4" maxlength="900">Motivated IT graduate with a foundation in SQL, Python, and data visualization. Enjoys turning raw data into clear insights and building practical solutions. Eager to contribute analytical thinking, curiosity, and a willingness to learn to a collaborative team.</textarea></label>
+            </div>
+            <div class="form-section">
+              <div class="form-section-title"><span class="form-number">03</span><div><h4>Experience</h4><p>Work, internship, volunteering or relevant experience</p></div></div>
+              <label>Role / position<input id="experienceTitle" value="Data Analyst Intern" maxlength="100"></label>
+              <div class="field-grid"><label>Company<input id="company" value="BrightPath Solutions" maxlength="100"></label><label>Dates<input id="experienceDates" value="Jun 2024 – Aug 2024" maxlength="60"></label></div>
+              <label>Highlights<textarea id="experienceDetails" rows="4" maxlength="1000">• Cleaned and organized spreadsheet data for weekly reporting.\n• Built Excel charts and summarized trends for the team.\n• Documented repeatable steps to improve reporting consistency.</textarea></label>
+            </div>
+            <div class="form-section">
+              <div class="form-section-title"><span class="form-number">04</span><div><h4>Education</h4><p>Your academic background</p></div></div>
+              <label>Degree / qualification<input id="degree" value="B.Sc. Information Technology" maxlength="120"></label>
+              <div class="field-grid"><label>Institution<input id="school" value="Annaleela Bunts Sangha College" maxlength="150"></label><label>Year / dates<input id="educationDates" value="2022 – 2025" maxlength="60"></label></div>
+              <label>Details (optional)<input id="educationDetails" value="CGPA: 7.0 / 10" maxlength="200"></label>
+            </div>
+            <div class="form-section">
+              <div class="form-section-title"><span class="form-number">05</span><div><h4>Skills & projects</h4><p>Show what you can do</p></div></div>
+              <label>Skills <span class="label-hint">Separate with commas</span><input id="skills" value="SQL, Python, Microsoft Excel, Power BI, Data Cleaning, Communication" maxlength="500"></label>
+              <label>Project name<input id="projectName" value="Retail Sales Dashboard" maxlength="120"></label>
+              <label>Project description<textarea id="projectDetails" rows="3" maxlength="700">Created an interactive sales dashboard to track revenue, orders, and product trends. Used data cleaning and visualizations to make results easier to understand.</textarea></label>
+            </div>
+          </form>
+          <div class="editor-footnote"><span aria-hidden="true">🔒</span><span><strong>Privacy-first:</strong> Your entries are used in this page to build the preview. This demo does not have a server or database to save them. Replace the sample details before downloading, and avoid adding sensitive information.</span></div>
+        </aside>
+
+        <section class="preview-panel" aria-label="Live resume preview">
+          <div class="preview-toolbar"><div><span class="live-dot"></span><span>LIVE PREVIEW</span></div><div class="template-select-wrap"><label for="templateSelect">Template</label><select id="templateSelect"><option value="classic">Classic</option><option value="modern">Modern</option><option value="minimal">Minimal</option></select></div></div>
+          <div class="paper-wrap"><article class="resume-paper template-classic" id="resumePreview">
+            <header class="resume-header"><h1 id="previewName">Alex Morgan</h1><p class="preview-title" id="previewTitle">Aspiring Data Analyst</p><div class="preview-contact" id="previewContact">Mumbai, Maharashtra · +91 98765 43210 · alex.morgan@email.com</div><div class="preview-links" id="previewLinks">linkedin.com/in/alexmorgan · github.com/alexmorgan</div></header>
+            <section class="resume-block" id="summaryBlock"><h2>PROFILE</h2><p id="previewSummary"></p></section>
+            <section class="resume-block" id="experienceBlock"><h2>EXPERIENCE</h2><div class="resume-entry"><div class="entry-heading"><strong id="previewExperienceTitle">Data Analyst Intern</strong><span id="previewExperienceDates">Jun 2024 – Aug 2024</span></div><div class="entry-subheading" id="previewCompany">BrightPath Solutions</div><p class="multiline" id="previewExperienceDetails"></p></div></section>
+            <section class="resume-block" id="educationBlock"><h2>EDUCATION</h2><div class="resume-entry"><div class="entry-heading"><strong id="previewDegree">B.Sc. Information Technology</strong><span id="previewEducationDates">2022 – 2025</span></div><div class="entry-subheading" id="previewSchool">Annaleela Bunts Sangha College</div><p id="previewEducationDetails">CGPA: 7.0 / 10</p></div></section>
+            <section class="resume-block" id="projectsBlock"><h2>PROJECTS</h2><div class="resume-entry"><strong id="previewProjectName">Retail Sales Dashboard</strong><p id="previewProjectDetails"></p></div></section>
+            <section class="resume-block" id="skillsBlock"><h2>SKILLS</h2><div class="preview-skills" id="previewSkills"></div></section>
+          </article></div>
+          <div class="preview-bottom"><div><strong>Looks good?</strong><span>Download your resume as a PDF.</span></div><button class="button button-dark download-button" id="downloadBtn" type="button"><span>↓</span> Download PDF</button></div>
+          <p class="download-status" id="downloadStatus" role="status" aria-live="polite"></p>
+        </section>
+      </div>
+    </section>
+
+    <section class="pricing-section" id="pricing">
+      <div class="section-heading pricing-heading"><div><div class="eyebrow">SIMPLE, TRANSPARENT PRICING</div><h2>Start free. Upgrade when ready.</h2><p>Let people build a useful resume before asking them to pay.</p></div></div>
+      <div class="pricing-grid">
+        <article class="price-card"><div class="price-label">STARTER</div><h3>Free</h3><p class="price-desc">Everything needed to create a first resume.</p><ul><li>✓ Resume form and live preview</li><li>✓ Basic templates</li><li>✓ PDF export</li><li>✓ No account required in this demo</li></ul><a class="button button-light" href="#builder">Use free builder</a></article>
+        <article class="price-card price-card-featured"><div class="popular-label">FUTURE PREMIUM</div><div class="price-label">PLUS</div><h3>Premium <span class="price-note">pricing to be decided</span></h3><p class="price-desc">A possible paid tier for extra value.</p><ul><li>✦ Exclusive template designs</li><li>✦ Multiple resume versions</li><li>✦ Guided bullet-point suggestions</li><li>✦ Optional expert review service</li></ul><button class="button button-dark" id="premiumBtn" type="button">Explore premium idea</button></article>
+      </div>
+      <p class="pricing-note"><strong>Important:</strong> This is a frontend starter, not a live paid service. Premium checkout is not connected. Before accepting money, add a secure backend and verified payment flow, plus clear privacy, terms, support, and refund pages. Never put payment secret keys in browser code.</p>
+    </section>
+  </main>
+
+  <footer class="footer"><a class="brand" href="#"><span class="brand-mark">R</span><span>resume<span class="brand-accent">craft</span></span></a><p>Made for your next opportunity.</p><span>© <span id="year"></span> ResumeCraft · Demo project</span></footer>
+</body>
+</html>
